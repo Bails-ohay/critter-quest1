@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dyvefmhd1iefr"]
+
+[ext_resource type="Script" uid="uid://bjlv864p6muek" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Control" unique_id=37455744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="ButtonList" type="VBoxContainer" parent="." unique_id=625130786]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -103.0
+offset_right = 150.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SinglePlayerButton" type="Button" parent="ButtonList" unique_id=1968384268]
+layout_mode = 2
+text = "Single Player"
+
+[node name="HostButton" type="Button" parent="ButtonList" unique_id=1623078095]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="ButtonList" unique_id=65915876]
+layout_mode = 2
+text = "Join Game"
+
+[node name="OptionsButton" type="Button" parent="ButtonList" unique_id=1989542882]
+layout_mode = 2
+text = "Options"
+
+[node name="JoinPanel" type="Panel" parent="." unique_id=1248308486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="JoinPanel" unique_id=963184451]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -64.0
+offset_right = 91.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="JoinPanel/VBoxContainer" unique_id=1173428270]
+layout_mode = 2
+text = "Enter Host's IP Address:"
+
+[node name="IPInput" type="LineEdit" parent="JoinPanel/VBoxContainer" unique_id=716270173]
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+
+[node name="ConnectButton" type="Button" parent="JoinPanel/VBoxContainer" unique_id=464254458]
+layout_mode = 2
+text = "Connect"
+
+[node name="JoinBackButton" type="Button" parent="JoinPanel/VBoxContainer" unique_id=1685083592]
+layout_mode = 2
+text = "Back"
+
+[node name="ConnectionStatusLabel" type="Label" parent="." unique_id=977653097]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
