@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dmkc0rtvwwpf"]
+
+[ext_resource type="Script" uid="uid://bq46y2unu22ic" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://c4cvsla54qn0n" path="res://hud.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://4lme65p7pent" path="res://GothicHUD.tscn" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tn8nu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p7mj0"]
+
+[node name="player" type="CharacterBody3D" unique_id=1535956101]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1567107743]
+shape = SubResource("CapsuleShape3D_tn8nu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1109130991]
+mesh = SubResource("CapsuleMesh_p7mj0")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=2078471681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1432899393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=868929921]
+unique_name_in_owner = true
+script = ExtResource("2_i3pqv")
+
+[node name="GothicHUD" parent="HUD" unique_id=1734746728 instance=ExtResource("3_i3pqv")]

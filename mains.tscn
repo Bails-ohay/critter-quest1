@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://co8wcjhidlihy"]
 
-[ext_resource type="Script" uid="uid://bq46y2unu22ic" path="res://player.gd" id="1_vrowr"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tn8nu"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_p7mj0"]
+[ext_resource type="PackedScene" uid="uid://dmkc0rtvwwpf" path="res://player.tscn" id="1_vrowr"]
 
 [node name="Mains" type="Node3D" unique_id=209034013]
 
@@ -15,18 +11,5 @@ size = Vector3(30, 0.5, 30)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=265961761]
 transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=237612458]
+[node name="player" parent="." unique_id=1535956101 instance=ExtResource("1_vrowr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_vrowr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=25812508]
-shape = SubResource("CapsuleShape3D_tn8nu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=1877863899]
-mesh = SubResource("CapsuleMesh_p7mj0")
-
-[node name="CameraPivot" type="Node3D" parent="player" unique_id=1376425493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Camera3D" type="Camera3D" parent="player/CameraPivot" unique_id=206649841]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

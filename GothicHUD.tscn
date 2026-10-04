@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://4lme65p7pent"]
+
+[ext_resource type="Script" uid="uid://bh2s2jxvgaap2" path="res://gothic_hud/gothic_hud.gd" id="1"]
+
+[node name="GothicHUD" type="Control" unique_id=1734746728]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1")
