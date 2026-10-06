@@ -43,6 +43,7 @@ layout_mode = 2
 text = "Options"
 
 [node name="JoinPanel" type="Panel" parent="." unique_id=1248308486]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

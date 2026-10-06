@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dmkc0rtvwwpf"]
 
 [ext_resource type="Script" uid="uid://bq46y2unu22ic" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Script" uid="uid://c4cvsla54qn0n" path="res://hud.gd" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://4lme65p7pent" path="res://GothicHUD.tscn" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://c4cvsla54qn0n" path="res://gothic_hud/hud.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://4lme65p7pent" path="res://gothic_hud/GothicHUD.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" path="res://inventory/inventory_ui.tscn" id="5_sweqy"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="6_2hs0m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tn8nu"]
 
@@ -28,3 +30,11 @@ unique_name_in_owner = true
 script = ExtResource("2_i3pqv")
 
 [node name="GothicHUD" parent="HUD" unique_id=1734746728 instance=ExtResource("3_i3pqv")]
+
+[node name="Inventory" type="Node" parent="." unique_id=414283697]
+unique_name_in_owner = true
+script = ExtResource("6_2hs0m")
+
+[node name="InventoryUI" parent="." unique_id=2124506125 instance=ExtResource("5_sweqy")]
+unique_name_in_owner = true
+slot_scene = null

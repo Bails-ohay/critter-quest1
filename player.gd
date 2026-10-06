@@ -6,7 +6,7 @@ const MOUSE_SENSITIVITY = 0.003
 const STAMINA_REGEN_RATE := 10.0          # normal (out of combat) stamina regen per second
 const STAMINA_COMBAT_REGEN_RATE := 3.5    # stamina regen per second while in combat
 const SPRINT_SPEED_MULTIPLIER := 1.8
-const SPRINT_STAMINA_DRAIN := 5.0         # stamina per second while sprinting
+const SPRINT_STAMINA_DRAIN := 10.0         # stamina per second while sprinting
 const COMBAT_TIMEOUT := 5.0               # seconds after last damage taken/dealt before leaving combat
 
 signal health_changed(current: float, max_amount: float)
@@ -67,9 +67,17 @@ func _ready() -> void:
 	stamina = max_stamina
 	xp_to_next_level = _xp_required_for_level(level)
 	%HUD.setup(self)
+	%InventoryUI.setup(%Inventory)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("inventory"):
+		%InventoryUI.toggle()
+		return
+
 	if event.is_action_pressed("ui_cancel"):
+		if %InventoryUI.visible:
+			%InventoryUI.toggle()
+			return
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
