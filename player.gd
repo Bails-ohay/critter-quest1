@@ -28,7 +28,7 @@ var stone := 0
 @export var base_max_stamina := 100.0
 @export var base_armor := 0.0             # hidden stat — no HUD element, used for damage mitigation
 
-# --- XP / leveling (WoW-like power curve, small tunable numbers) ---
+# --- XP / leveling ---
 @export var xp_base := 50.0
 @export var xp_curve_exponent := 1.5
 
@@ -58,6 +58,8 @@ var stat_modifiers := {
 	"max_stamina": {},
 	"armor": {},
 }
+@export var inventory: Inventory
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -67,21 +69,9 @@ func _ready() -> void:
 	stamina = max_stamina
 	xp_to_next_level = _xp_required_for_level(level)
 	%HUD.setup(self)
-	%InventoryUI.setup(%Inventory)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory"):
-		%InventoryUI.toggle()
-		return
-
-	if event.is_action_pressed("ui_cancel"):
-		if %InventoryUI.visible:
-			%InventoryUI.toggle()
-			return
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
