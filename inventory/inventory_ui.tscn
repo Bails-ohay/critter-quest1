@@ -5,12 +5,12 @@
 [ext_resource type="Script" uid="uid://bgc0n4nlxxup0" path="res://inventory/Inventory_UI.gd" id="3_ui8gd"]
 
 [node name="Inventory_UI" type="Control" unique_id=824240145]
+script = ExtResource("3_ui8gd")
 custom_minimum_size = Vector2(124, 196)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 124.0
 offset_bottom = 196.0
-script = ExtResource("3_ui8gd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=639211838]
 layout_mode = 0

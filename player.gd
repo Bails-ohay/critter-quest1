@@ -69,7 +69,7 @@ func _ready() -> void:
 	stamina = max_stamina
 	xp_to_next_level = _xp_required_for_level(level)
 	%HUD.setup(self)
-	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 
@@ -90,6 +90,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				var amount = hit_object.harvest()
 				stone += amount
 				print("Stone: ", stone)
+			elif hit_object.has_method("pick_up"):
+				hit_object.pick_up(self)
 			elif hit_object.has_method("take_damage"):
 				hit_object.take_damage(5)
 				_enter_combat()   # landing a hit counts as "causing damage"
